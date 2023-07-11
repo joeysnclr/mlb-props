@@ -1,7 +1,10 @@
 from flask import Flask, jsonify
 import os
+import json
 
 app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
 
 
 @app.route('/')
@@ -45,6 +48,8 @@ def today():
             "under_probability": 0.5
         }
         ]
+
+    # format the data nicely with jsonify
     return jsonify(fake_data)
 
 
